@@ -1,0 +1,44 @@
+{% extends 'generator/base.html' %}
+
+{% block title %}
+User_requests Database
+{% endblock %}
+
+{% block content %}
+<div class="container">
+            <h1>User_requests Database:</h1>
+
+           <table class="table table-bordered">
+    <thead>
+        <tr class="table-secondary">
+            <th scope="col">ID</th>
+            <th scope="col">Text</th>
+            <th scope="col">Color1</th>
+            <th scope="col">Color2</th>
+            <th scope="col">Size</th>
+            <th scope="col">Width</th>
+            <th scope="col">Height</th>
+            <th scope="col">Created at</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for el in requests %}
+        <tr>
+            <td> {{ el.id }}</td>
+            <td rowspan="2"><em>{{ el.text }}</em></td>
+            <td> {{ el.text_color }}</td>
+            <td> {{ el.bg_color }}</td>
+            <td> {{ el.font_size }}</td>
+            <td> {{ el.width }}</td>
+            <td> {{ el.height }}</td>
+            <td> {{ el.created_at }}</td>
+        </tr>
+        <tr>
+            <!-- This row is left empty to ensure h2 spans two rows -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+{% endblock %}

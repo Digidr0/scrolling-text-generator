@@ -1,0 +1,21 @@
+{% extends 'generator/base.html' %}
+{% load static %}
+{% block title %}
+Video
+{% endblock %}
+{% block content %}
+<div class="container flex align-middle  flex-sm-column d-flex flex-wrap align-items-sm-center  mt-3">
+    <div>
+        <video width="400" class="media nested-media rounded" autoplay loop muted controls poster="{{MEDIA_URL}}/python.png">
+            <source src="{{MEDIA_URL}}output.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+<div class="align-items-center">
+
+    <div class="btn btn-dark btn-lg m-2" onclick="window.open(`{{MEDIA_URL}}output.mp4`)">Full size</div>
+    <a href="{{MEDIA_URL}}output.mp4" download=""><div class="btn btn-lg btn-outline-success m-2">Download</div>
+    </a>
+</div>
+</div>
+{% endblock %}

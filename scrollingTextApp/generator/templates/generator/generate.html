@@ -1,0 +1,29 @@
+{% extends 'generator/base.html' %}
+{% load static %}
+
+{% block title %}
+Генерация
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-start align-items-center">
+    <img height="150" src="{% static 'logo.png' %}"class="m-1">
+    <div class="container .flex d-flex flex-sm-column">
+        <h1 class=".h1 primary">Scrolling text generator</h1>
+        <p>Generate Scrolling text video from text!</p>
+    </div>
+</div>
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    <strong>{{error}}</strong>
+</div>
+{% endif %}
+<form method="post" class="p-3 border rounded" style="margin: 0 9vw 0 9vw">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-success mt-3">Сгенерировать</button>
+    <div>{{video}}</div>
+</form>
+
+
+{% endblock %}
